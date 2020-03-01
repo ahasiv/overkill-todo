@@ -18,10 +18,4 @@ export class OverkillComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  // getStatus() {
-  //   return this.todoStatus;
-  // }
-
-
 }
