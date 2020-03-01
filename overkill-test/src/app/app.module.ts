@@ -3,24 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OverkillComponent } from './overkill/overkill.component';
 import { FormsModule } from '@angular/forms';
 import { TodoViewComponent } from './todo-view/todo-view.component';
-import { TodoService } from './services/todo.service';
+import { RouterModule, Routes } from '@angular/router';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
+
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './store/store.reducer';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    OverkillComponent,
-    TodoViewComponent
+    TodoViewComponent,
+    TodoDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    StoreModule.forRoot({list: todoReducer})
+
   ],
   providers: [
-    TodoService
   ],
   bootstrap: [AppComponent]
 })

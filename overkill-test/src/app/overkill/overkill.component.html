@@ -1,9 +1,0 @@
-
-<li class="list-group-item">
-  <input type="checkbox" [(ngModel)]="todoIsSelected" 
-          name="list_name" value="{{ todoId }}"/>
-  <label class="strikethrough">
-    <h4> {{ todoName }} -- Statut :  
-        <span *ngIf="todoIsSelected"> done </span><span *ngIf="!todoIsSelected"> undone </span></h4>
-  </label>
-</li>

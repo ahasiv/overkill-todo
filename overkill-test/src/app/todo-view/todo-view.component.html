@@ -1,13 +1,28 @@
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>My current todos</h2>
-        <ul class="list-group">
-          <app-overkill *ngFor="let todo of todos; let i = index"
-            [todoName]="todo.name"
-            [todoStatus]="todo.status"
-            [index]="i"></app-overkill>
-        </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>My current todos</h2>
+      <ul class="list-group">
+          <!--li class="list-group-item">
+              <input type="checkbox"
+                      [(ngModel)]="selected"
+                      (change)="checkUncheckAll()"/> <strong>Select/ Unselect All</strong>
+          </li-->
+      </ul>
+      <ul class="list-group">
+
+        <div  *ngFor="let todo of sortList(my_todo_list); let i = index">
+        <li class="list-group-item">
+          <input type="checkbox" [(ngModel)]="todo.checked"
+                  name="list_name" value="{{ todo.id }}"/>
+          <label [ngClass]="{'strikethrough': todo.checked }">
+            <h4> {{ todo.name }} -- Statut :
+                <span *ngIf="todo.checked"> done </span><span *ngIf="!todo.checked"> undone </span></h4>
+          </label>
+        </li>
       </div>
+
+      </ul>
     </div>
-  </div> -->
+  </div>
+</div>
