@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-overkill',
@@ -8,19 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OverkillComponent implements OnInit {
 
   @Input() todoName: string;
-  @Input() todoStatus: string;
+  @Input() todoIsSelected: boolean;
+  @Input() todoId: number;
+  @Input() index: number;
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
   }
 
-  getStatus() {
-    return this.todoStatus;
-  }
 
-  onChecked(obj: any, isChecked: boolean){
-    console.log(obj, isChecked); // {}, true || false
-  }
+  // getStatus() {
+  //   return this.todoStatus;
+  // }
+
 
 }

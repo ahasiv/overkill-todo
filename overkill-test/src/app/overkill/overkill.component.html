@@ -1,4 +1,9 @@
+
 <li class="list-group-item">
-    <h4>Todo's title : {{ todoName }} -- Statut : {{ getStatus() }}</h4>
-    <!-- <input type="checkbox" ngModel [(ngModelChange)]="onChecked(obj, $event)" /> -->
-  </li>
+  <input type="checkbox" [(ngModel)]="todoIsSelected" 
+          name="list_name" value="{{ todoId }}"/>
+  <label class="strikethrough">
+    <h4> {{ todoName }} -- Statut :  
+        <span *ngIf="todoIsSelected"> done </span><span *ngIf="!todoIsSelected"> undone </span></h4>
+  </label>
+</li>

@@ -1,12 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>My current todos</h2>
-      <ul class="list-group">
-        <app-overkill [todoName]="todoOne"  [todoStatus]="'undone'"></app-overkill>
-        <app-overkill [todoName]="todoTwo" [todoStatus]="'undone'"></app-overkill>
-        <app-overkill [todoName]="todoThree" [todoStatus]="'done'"></app-overkill>
-      </ul>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>My current todos</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <input type="checkbox" 
+                        [(ngModel)]="selected" 
+                        (change)="checkUncheckAll()"/> <strong>Select/ Unselect All</strong>
+            </li>
+        </ul>
+        <ul class="list-group">
+          <app-overkill *ngFor="let todo of todos_list; let i = index"
+                [todoName]="todo.name"
+                [todoIsSelected]="todo.checked"
+                [todoId]="todo.id"
+                [index]="i"
+                (change)="isSelectedAll()"></app-overkill>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
